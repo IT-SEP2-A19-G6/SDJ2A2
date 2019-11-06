@@ -1,6 +1,6 @@
 package Shared;
 
-import server.model.domain.Burger;
+import chef.domain.Burger;
 
 import java.rmi.Remote;
 

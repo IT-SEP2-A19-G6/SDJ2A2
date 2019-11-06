@@ -2,9 +2,8 @@ package server.network;
 
 import Shared.BurgerBar;
 import server.model.burger.BurgerQueue;
-import server.model.domain.Burger;
+import chef.domain.Burger;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
