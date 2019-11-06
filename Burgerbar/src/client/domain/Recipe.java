@@ -1,4 +1,4 @@
-package chef.domain;
+package client.domain;
 
 import java.util.Arrays;
 /**
