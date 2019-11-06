@@ -1,4 +1,4 @@
-package server.model.domain;
+package chef.domain;
 
 import java.io.Serializable;
 /**

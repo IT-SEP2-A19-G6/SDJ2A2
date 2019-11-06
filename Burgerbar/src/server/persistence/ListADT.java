@@ -1,4 +1,4 @@
-package server.util;
+package server.persistence;
 
 /**
  * ListADT defines the interface to a list collection - the abstract data type

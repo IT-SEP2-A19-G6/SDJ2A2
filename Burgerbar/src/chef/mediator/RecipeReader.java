@@ -1,6 +1,6 @@
-package server.model.mediator;
+package chef.mediator;
 
-import server.model.domain.Recipe;
+import chef.domain.Recipe;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
