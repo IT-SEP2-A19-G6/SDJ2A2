@@ -1,4 +1,4 @@
 package chef.network;
 
-public class delete {
+public class ChefRMI {
 }
