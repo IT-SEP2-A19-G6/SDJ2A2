@@ -1,6 +1,6 @@
-package server.model.mediator;
+package chef.mediator;
 
-import server.model.domain.Recipe;
+import chef.domain.Recipe;
 
 /**
  * Interface to get and update a recipe
