@@ -11,7 +11,7 @@ package server.persistence;
  * @author Steffen Vissing Andersen
  * @version 0.1, date: 21/03/2019
  */
-public class ArrayList<T> implements ListADT<T>
+public class   ArrayList<T> implements ListADT<T>
 {
    private int DEFAULT_CAPACITY = 100;
    private T[] list;
