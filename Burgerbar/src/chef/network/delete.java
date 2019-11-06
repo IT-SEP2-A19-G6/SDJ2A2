@@ -1,4 +1,4 @@
-package server.model;
+package chef.network;
 
 public class delete {
 }
