@@ -18,6 +18,7 @@ public class RunBurgerServer {
             Registry reg = LocateRegistry.createRegistry(1099);
             ServerRMI server = new ServerRMI(burgerQueue);
             reg.bind("burgerServer", server);
+            System.out.println("Server is running");
         } catch (RemoteException | AlreadyBoundException e) {
             e.printStackTrace();
         }
