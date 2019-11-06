@@ -1,8 +1,9 @@
 package server.network;
 
 import Shared.BurgerBar;
+import Shared.BurgerType;
 import server.model.burger.BurgerQueue;
-import chef.domain.Burger;
+import client.domain.Burger;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -17,11 +18,13 @@ public class ServerRMI implements BurgerBar {
 
     @Override
     public void produceBurger(Burger burger) {
-
+        System.out.println("Chef has produced  a new "  + burger.toString()); //TODO handle incoming burger from chef
     }
 
     @Override
-    public Burger consumeBurger() {
-        return null;
+    public Burger consumeBurger() throws RemoteException {
+        System.out.println("A customer is served");
+        return new Burger(BurgerType.CHEESE.name().toLowerCase());
     }
+
 }
