@@ -70,7 +70,7 @@ public class ManagerController {
                 if (oldVal.isEmpty()) {
                     oldVal = "Open";
                 }
-                statusButton.setText(oldVal + " restaurant");
+                statusButton.setText(oldVal + (oldVal.equals("Close") ? " down" : " up") + " burger bar");
 
             } catch (URISyntaxException e) {
                 System.out.println("there was an error loading gui images.");
