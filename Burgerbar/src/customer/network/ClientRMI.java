@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class ClientRMI implements ReplyTo {
     private Consumer consumer;
-    private String burgerBarStatus;
+    private boolean burgerBarOpen;
     private Random random = new Random();
 
 
@@ -22,12 +22,15 @@ public class ClientRMI implements ReplyTo {
         consumer = (Consumer) registry.lookup("burgerServer");
         System.out.println("Client is connected");
         sendSelfToServer();
-        burgerBarStatus = consumer.getBurgerBarStatus();
-        consumeBurgerFromQueue();
+        burgerBarOpen = consumer.getBurgerBarStatus();
+        if (burgerBarOpen){
+            consumeBurgerFromQueue();
+        }
     }
 
-    public void consumeBurgerFromQueue(){
-        while (burgerBarStatus.equals("Open")){
+    private void consumeBurgerFromQueue(){
+        burgerBarOpen = true;
+        while (burgerBarOpen){
             try {
                 consumer.consumeBurger();
                 System.out.println("A customer munched a burger");
@@ -36,6 +39,7 @@ public class ClientRMI implements ReplyTo {
                 e.printStackTrace();
             }
         }
+        System.out.println("Customer is leaving");
     }
 
 
@@ -45,14 +49,14 @@ public class ClientRMI implements ReplyTo {
     }
 
     @Override
-    public void burgerBarInBusiness(Boolean bool) throws RemoteException {
-        if (bool == true){
-            System.out.println("Customer orders burgers");
-            burgerBarStatus = "Open";
-            consumeBurgerFromQueue();
-        } else {
-            burgerBarStatus = "Closed";
-            System.out.println("Customer is leaving");
-        }
+    public void burgerBarOpen() {
+        System.out.println("Customer orders some meat");
+        consumeBurgerFromQueue();
     }
+
+    @Override
+    public void burgerBarClosed() {
+        burgerBarOpen = false;
+    }
+
 }

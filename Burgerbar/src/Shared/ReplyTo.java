@@ -5,5 +5,6 @@ import java.rmi.RemoteException;
 
 public interface ReplyTo extends Remote {
     void sendSelfToServer() throws RemoteException;
-    void burgerBarInBusiness(Boolean bool) throws RemoteException;
+    void burgerBarOpen() throws RemoteException;
+    void burgerBarClosed() throws RemoteException;
 }

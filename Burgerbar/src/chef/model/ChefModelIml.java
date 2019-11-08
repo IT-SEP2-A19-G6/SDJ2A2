@@ -14,6 +14,7 @@ public class ChefModelIml implements ChefModel {
     private RecipeProvider recipeProvider;
     private Burger burger;
     private PropertyChangeSupport support;
+    private boolean open;
 
 
     public ChefModelIml(String recipeFileName) {
@@ -22,8 +23,9 @@ public class ChefModelIml implements ChefModel {
     }
 
     @Override
-    public void produceBurgers(String status) {
-        while (status.equals("Open")){
+    public void produceBurgers() {
+        open = true;
+        while (open){
             Random r = new Random();
             int random = (int) Math.floor((Math.random()*3) + 1);
 
@@ -45,6 +47,12 @@ public class ChefModelIml implements ChefModel {
 
             support.firePropertyChange("addBurger", null, burger);
         }
+        System.out.println("Chef is leaving");
+    }
+
+    @Override
+    public void goHome() {
+        open = false;
     }
 
     @Override

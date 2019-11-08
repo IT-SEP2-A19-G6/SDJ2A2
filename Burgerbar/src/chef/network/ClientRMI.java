@@ -14,7 +14,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ClientRMI implements ReplyTo {
     private Producer producer;
-    private String burgerBarStatus;
+    private boolean burgerBarOpen;
     private ChefModel chefModel;
 
     public ClientRMI(ChefModel chef) throws RemoteException, NotBoundException {
@@ -25,8 +25,10 @@ public class ClientRMI implements ReplyTo {
         chefModel.addPropertyListener("addBurger", this::addBurgerToQueue);
         System.out.println("Client is connected");
         sendSelfToServer();
-        burgerBarStatus = producer.getBurgerBarStatus();
-        chefModel.produceBurgers(burgerBarStatus);
+        burgerBarOpen = producer.getBurgerBarStatus();
+        if (burgerBarOpen){
+            chefModel.produceBurgers();
+        }
     }
 
     private void addBurgerToQueue(PropertyChangeEvent propertyChangeEvent) {
@@ -42,15 +44,14 @@ public class ClientRMI implements ReplyTo {
         producer.regProducer(this);
     }
 
+
     @Override
-    public void burgerBarInBusiness(Boolean bool) throws RemoteException {
-        if (bool == true){
-            burgerBarStatus = "Open";
-            chefModel.produceBurgers(burgerBarStatus);
-        } else {
-            burgerBarStatus = "Closed";
-            chefModel.produceBurgers(burgerBarStatus);
-            System.out.println("Chef is going home to rest");
-        }
+    public void burgerBarOpen() {
+        chefModel.produceBurgers();
+    }
+
+    @Override
+    public void burgerBarClosed() {
+        chefModel.goHome();
     }
 }

@@ -35,7 +35,7 @@ public class BurgerQueueHandler implements BurgerQueue {
                 e.printStackTrace();
             }
         }
-        System.out.println(arrayList.get(0).toString());
+        System.out.println("Customer eats a " + arrayList.get(0).getName());
         notifyAll();
         return arrayList.remove(0);
 

@@ -12,7 +12,6 @@ import java.rmi.registry.Registry;
 public class ClientRMI {
     private Manager burgerBar;
 
-
     public ClientRMI(ManagerModel m) throws RemoteException, NotBoundException {
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         burgerBar = (Manager) registry.lookup("burgerServer");

@@ -5,30 +5,30 @@ import java.beans.PropertyChangeSupport;
 
 public class BurgerBarStatusIml implements BurgerBarStatus {
     private PropertyChangeSupport support;
-    private String barStatus;
+    private boolean barOpen;
 
     public BurgerBarStatusIml() {
         support = new PropertyChangeSupport(this);
-        barStatus = "Closed";
+        barOpen = true;
     }
 
     @Override
     public void setBurgerBarStatus(String status) {
         if (status.equals("Open")){
-            barStatus = "Open";
-            System.out.println("The burger bar is " + barStatus);
+            barOpen = true;
+            System.out.println("The burger bar is open");
             support.firePropertyChange("ChangedStatus", "Close", status);
         } else if (status.equals("Close")){
-            barStatus = "Closed";
-            System.out.println("The burger bar is " + barStatus);
+            barOpen = false;
+            System.out.println("The burger bar is closed");
             support.firePropertyChange("ChangedStatus", "Open", status);
         }
 
     }
 
     @Override
-    public String getBurgerBarStatus() {
-        return barStatus;
+    public boolean getBurgerBarStatus() {
+        return barOpen;
     }
 
     @Override

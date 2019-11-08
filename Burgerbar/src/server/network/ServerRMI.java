@@ -24,19 +24,19 @@ public class ServerRMI implements Manager, Producer, Consumer {
     }
 
     private void announceStatus(PropertyChangeEvent propertyChangeEvent) {
-        String event = propertyChangeEvent.getNewValue().toString();
-        if (event.equals("Open")){
-            for (ReplyTo client : clients){
-                try {
-                    client.burgerBarInBusiness(true);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (burgerBarStatus.getBurgerBarStatus()){
+            System.out.println(burgerBarStatus.getBurgerBarStatus());
+//            for (ReplyTo client : clients){ //TODO find bug
+//                try {
+//                    client.burgerBarOpen();
+//                } catch (RemoteException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         } else {
             for (ReplyTo client : clients){
                 try {
-                    client.burgerBarInBusiness(false);
+                    client.burgerBarClosed();
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -60,7 +60,7 @@ public class ServerRMI implements Manager, Producer, Consumer {
     }
 
     @Override
-    public String getBurgerBarStatus() {
+    public boolean getBurgerBarStatus() {
         return burgerBarStatus.getBurgerBarStatus();
     }
 
