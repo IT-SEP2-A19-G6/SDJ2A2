@@ -2,10 +2,11 @@ package server.model.burger;
 
 import client.domain.Burger;
 import server.persistence.ArrayList;
+import server.persistence.ListADT;
 
 public class BurgerQueueHandler implements BurgerQueue {
 
-    private ArrayList<Burger> arrayList = new ArrayList<>();
+    private ListADT<Burger> arrayList = new ArrayList<>();
 
     @Override
     public synchronized void addBurger(Burger burger){
