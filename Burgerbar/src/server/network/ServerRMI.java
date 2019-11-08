@@ -17,8 +17,9 @@ public class ServerRMI implements BurgerBar {
     }
 
     @Override
-    public void produceBurger(Burger burger) {
+    public String produceBurger(Burger burger) {
         System.out.println("Chef has produced  a new "  + burger.toString()); //TODO handle incoming burger from chef
+        return "Burger delivered";
     }
 
     @Override
