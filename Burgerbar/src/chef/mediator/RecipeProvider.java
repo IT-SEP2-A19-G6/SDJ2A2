@@ -1,6 +1,4 @@
-package client.mediator;
-
-import client.domain.Recipe;
+package chef.mediator;
 
 /**
  * Interface to get and update a recipe

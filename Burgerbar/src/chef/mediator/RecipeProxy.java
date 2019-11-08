@@ -1,6 +1,4 @@
-package client.mediator;
-
-import client.domain.Recipe;
+package chef.mediator;
 
 public class RecipeProxy implements RecipeProvider {
 

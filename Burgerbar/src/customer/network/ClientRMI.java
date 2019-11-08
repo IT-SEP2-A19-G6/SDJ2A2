@@ -1,14 +1,16 @@
-package client.network;
+package customer.network;
 
 import Shared.BurgerBar;
-import client.domain.Burger;
+import Shared.Burger;
+
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class ClientRMI {
-    BurgerBar burgerBar;
+    private BurgerBar burgerBar;
+
 
     public ClientRMI() throws RemoteException, NotBoundException {
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);

@@ -1,6 +1,6 @@
 package server.model.burger;
 
-import client.domain.Burger;
+import Shared.Burger;
 import server.persistence.ArrayList;
 import server.persistence.ListADT;
 
