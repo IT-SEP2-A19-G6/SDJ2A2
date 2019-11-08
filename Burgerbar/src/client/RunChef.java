@@ -1,11 +1,7 @@
 package client;
 
-import Shared.BurgerType;
-import client.domain.Burger;
 import client.mediator.Producer;
 import client.network.ClientRMI;
-import javafx.application.Application;
-import javafx.stage.Stage;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
