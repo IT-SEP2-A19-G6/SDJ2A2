@@ -1,7 +1,6 @@
 package Shared;
 
 import client.domain.Burger;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

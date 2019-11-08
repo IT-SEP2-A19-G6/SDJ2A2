@@ -1,5 +1,8 @@
 package server.model.burger;
 
-public interface BurgerQueue {
+import client.domain.Burger;
 
+public interface BurgerQueue {
+    void addBurger(Burger burger);
+    Burger removeBurger();
 }

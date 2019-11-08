@@ -1,17 +1,17 @@
 package server;
 
+import Shared.BurgerBar;
+import client.domain.Burger;
 import server.model.burger.BurgerQueue;
 import server.model.burger.BurgerQueueHandler;
 import server.network.ServerRMI;
-
-
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class RunBurgerServer {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         BurgerQueue burgerQueue = new BurgerQueueHandler();
 
         try {
