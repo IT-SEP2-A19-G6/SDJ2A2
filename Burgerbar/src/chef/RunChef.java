@@ -8,9 +8,8 @@ import java.rmi.RemoteException;
 
 public class RunChef {
     public static void main(String[] args) throws RemoteException, NotBoundException {
-        ClientRMI clientRMI = new ClientRMI();
-        ChefModel chef = new ChefModelIml(clientRMI, "Burgerbar/src/chef/mediator/recipes.txt");
-        chef.produceBurgers();
+        ChefModel chef = new ChefModelIml("Burgerbar/src/chef/mediator/recipes.txt");
+        new ClientRMI(chef);
     }
 
 }

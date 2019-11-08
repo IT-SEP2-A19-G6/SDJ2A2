@@ -4,7 +4,6 @@ import Shared.Burger;
 import chef.mediator.Recipe;
 import chef.mediator.RecipeProvider;
 import chef.mediator.RecipeProxy;
-import chef.network.ClientRMI;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -14,18 +13,17 @@ public class ChefModelIml implements ChefModel {
 
     private RecipeProvider recipeProvider;
     private Burger burger;
-    private ClientRMI clientRMI;
-    private PropertyChangeSupport support = new PropertyChangeSupport(this);
+    private PropertyChangeSupport support;
 
 
-    public ChefModelIml(ClientRMI clientRMI, String recipeFileName) {
+    public ChefModelIml(String recipeFileName) {
         recipeProvider = new RecipeProxy(recipeFileName);
-        this.clientRMI = clientRMI;
+        support = new PropertyChangeSupport(this);
     }
 
     @Override
-    public void produceBurgers() {
-        while (true){
+    public void produceBurgers(String status) {
+        while (status.equals("Open")){
             Random r = new Random();
             int random = (int) Math.floor((Math.random()*3) + 1);
 
@@ -45,7 +43,7 @@ public class ChefModelIml implements ChefModel {
                 e.printStackTrace();
             }
 
-            clientRMI.addBurgerToQueue(burger);
+            support.firePropertyChange("addBurger", null, burger);
         }
     }
 

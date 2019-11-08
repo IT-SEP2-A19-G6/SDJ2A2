@@ -2,6 +2,7 @@ package manager;
 
 import manager.model.ManagerModel;
 import manager.model.ManagerModelIml;
+import manager.network.ClientRMI;
 import manager.view.ManagerController;
 import manager.viewmodel.ManagerViewModel;
 import javafx.application.Application;
@@ -13,11 +14,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.rmi.NotBoundException;
 
 public class StartManagerApp extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, NotBoundException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/ManagerView.fxml"));
@@ -28,6 +30,8 @@ public class StartManagerApp extends Application {
         ManagerModel m = new ManagerModelIml();
         ManagerViewModel mvm = new ManagerViewModel(m);
         controller.init(mvm);
+        ClientRMI clientRMI = new ClientRMI(m);
+
 
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

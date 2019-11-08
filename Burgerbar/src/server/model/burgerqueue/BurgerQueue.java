@@ -1,4 +1,4 @@
-package server.model.burger;
+package server.model.burgerqueue;
 
 import Shared.Burger;
 
