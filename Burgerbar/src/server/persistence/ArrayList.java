@@ -220,9 +220,9 @@ public class   ArrayList<T> implements ListADT<T>
     */
    @Override
    public boolean isFull()
-   {
-      return true;
-   }
+{
+   return true;
+}
 
    /**
     * Returns the number of elements in this list

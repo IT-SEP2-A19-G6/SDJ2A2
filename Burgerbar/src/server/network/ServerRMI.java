@@ -19,8 +19,6 @@ public class ServerRMI implements BurgerBar {
     @Override
     public void produceBurger(Burger burger) throws RemoteException {
         burgerQueue.addBurger(burger);
-        System.out.println("Chef has produced  a new "  + burger.toString()); //TODO handle incoming burger from chef
-
     }
 
     @Override
