@@ -1,4 +1,4 @@
-package client.domain;
+package Shared;
 
 import java.io.Serializable;
 /**

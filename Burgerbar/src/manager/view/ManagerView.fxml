@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="parent" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.view.ManagerController">
+<AnchorPane fx:id="parent" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.view.ManagerController">
     <children>
         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" style="-fx-background-color: #2b2a4c;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -24,7 +24,7 @@
                   </Label>
                         <ImageView fx:id="burgerImage" fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../util/img/burger-bounce.gif" />
+                                <Image url="@../view/img/burger-bounce.gif" />
                             </image>
                      <VBox.margin>
                         <Insets top="-30.0" />
@@ -48,7 +48,7 @@
                            </font></Button>
                                 <ImageView fx:id="statusImage" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../util/img/status_opened.png" />
+                                        <Image url="@../view/img/status_opened.png" />
                                     </image>
                                 </ImageView>
                             </children>

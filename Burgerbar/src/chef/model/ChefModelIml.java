@@ -1,23 +1,29 @@
-package client.mediator;
+package chef.model;
 
-import client.domain.Burger;
-import client.domain.Recipe;
-import client.network.ClientRMI;
+import Shared.Burger;
+import chef.mediator.Recipe;
+import chef.mediator.RecipeProvider;
+import chef.mediator.RecipeProxy;
+import chef.network.ClientRMI;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Random;
 
-public class Producer {
+public class ChefModelIml implements ChefModel {
 
     private RecipeProvider recipeProvider;
     private Burger burger;
     private ClientRMI clientRMI;
+    private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
 
-    public Producer(ClientRMI clientRMI, String recipeFileName) {
+    public ChefModelIml(ClientRMI clientRMI, String recipeFileName) {
         recipeProvider = new RecipeProxy(recipeFileName);
         this.clientRMI = clientRMI;
     }
 
+    @Override
     public void produceBurgers() {
         while (true){
             Random r = new Random();
@@ -43,4 +49,8 @@ public class Producer {
         }
     }
 
+    @Override
+    public void addPropertyListener(String name, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(name, listener);
+    }
 }

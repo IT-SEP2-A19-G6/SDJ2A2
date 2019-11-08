@@ -1,4 +1,6 @@
-package client.domain;
+package chef.mediator;
+
+import Shared.Burger;
 
 import java.util.Arrays;
 /**

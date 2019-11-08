@@ -1,9 +1,9 @@
-package client.ui;
+package manager;
 
-import client.ui.model.ManagerModel;
-import client.ui.model.ManagerModelIml;
-import client.ui.view.ManagerController;
-import client.ui.viewmodel.ManagerViewModel;
+import manager.model.ManagerModel;
+import manager.model.ManagerModelIml;
+import manager.view.ManagerController;
+import manager.viewmodel.ManagerViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +14,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class StartView extends Application {
+public class StartManagerApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {

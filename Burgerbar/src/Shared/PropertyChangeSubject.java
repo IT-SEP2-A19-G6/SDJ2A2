@@ -1,4 +1,4 @@
-package client.ui.model;
+package Shared;
 
 import java.beans.PropertyChangeListener;
 

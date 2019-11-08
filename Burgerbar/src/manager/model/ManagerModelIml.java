@@ -1,4 +1,4 @@
-package client.ui.model;
+package manager.model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -8,7 +8,6 @@ public class ManagerModelIml implements ManagerModel {
     private PropertyChangeSupport support;
 
     public ManagerModelIml() {
-
         support = new PropertyChangeSupport(this);
     }
 

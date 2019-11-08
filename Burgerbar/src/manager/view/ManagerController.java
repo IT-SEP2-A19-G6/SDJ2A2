@@ -1,6 +1,6 @@
-package client.ui.view;
+package manager.view;
 
-import client.ui.viewmodel.ManagerViewModel;
+import manager.viewmodel.ManagerViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -50,8 +50,8 @@ public class ManagerController {
         statusLabel.textProperty().addListener((ov, oldVal, newVal) -> {
             try {
 
-                URL closedPath = ClassLoader.getSystemClassLoader().getResource("client/ui/util/img/status_closed.png");
-                URL openPath = ClassLoader.getSystemClassLoader().getResource("client/ui/util/img/status_closed.png");
+                URL closedPath = ClassLoader.getSystemClassLoader().getResource("manager/view/img/status_closed.png");
+                URL openPath = ClassLoader.getSystemClassLoader().getResource("manager/view/img/status_closed.png");
 
                 if (newVal.equals("Open")) {
                     statusLabel.setStyle("-fx-text-fill: Green");

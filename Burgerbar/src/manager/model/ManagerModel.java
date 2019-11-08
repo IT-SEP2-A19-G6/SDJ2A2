@@ -1,4 +1,6 @@
-package client.ui.model;
+package manager.model;
+
+import Shared.PropertyChangeSubject;
 
 public interface ManagerModel extends PropertyChangeSubject {
 

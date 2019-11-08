@@ -1,8 +1,7 @@
 package server.network;
 
 import Shared.BurgerBar;
-import Shared.BurgerType;
-import client.domain.Burger;
+import Shared.Burger;
 import server.model.burger.BurgerQueue;
 
 import java.rmi.RemoteException;
