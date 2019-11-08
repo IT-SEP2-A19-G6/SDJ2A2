@@ -1,6 +1,6 @@
 package server.network;
 
-import Shared.*;
+import shared.*;
 import server.model.burgerbar.BurgerBarStatus;
 import server.model.burgerqueue.BurgerQueue;
 

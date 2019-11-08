@@ -1,6 +1,6 @@
 package chef.model;
 
-import Shared.PropertyChangeSubject;
+import shared.PropertyChangeSubject;
 
 public interface ChefModel extends PropertyChangeSubject {
     void produceBurgers();

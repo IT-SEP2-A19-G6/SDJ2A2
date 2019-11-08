@@ -1,6 +1,6 @@
 package chef.model;
 
-import Shared.Burger;
+import shared.Burger;
 import chef.mediator.Recipe;
 import chef.mediator.RecipeProvider;
 import chef.mediator.RecipeProxy;

@@ -1,6 +1,6 @@
 package manager.network;
 
-import Shared.Manager;
+import shared.Manager;
 import manager.model.ManagerModel;
 
 import java.beans.PropertyChangeEvent;

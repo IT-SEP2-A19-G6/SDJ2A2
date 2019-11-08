@@ -1,6 +1,6 @@
 package chef.mediator;
 
-import Shared.Burger;
+import shared.Burger;
 
 import java.util.Arrays;
 /**

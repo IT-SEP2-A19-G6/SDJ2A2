@@ -1,6 +1,6 @@
 package server.model.burgerqueue;
 
-import Shared.Burger;
+import shared.Burger;
 
 public interface BurgerQueue {
     void addBurger(Burger burger);

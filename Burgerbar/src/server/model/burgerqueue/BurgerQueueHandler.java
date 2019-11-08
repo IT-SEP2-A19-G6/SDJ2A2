@@ -1,6 +1,6 @@
 package server.model.burgerqueue;
 
-import Shared.Burger;
+import shared.Burger;
 import server.persistence.ArrayList;
 import server.persistence.ListADT;
 

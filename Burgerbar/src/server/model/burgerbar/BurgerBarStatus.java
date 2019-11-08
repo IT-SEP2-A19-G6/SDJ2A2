@@ -1,6 +1,6 @@
 package server.model.burgerbar;
 
-import Shared.PropertyChangeSubject;
+import shared.PropertyChangeSubject;
 
 public interface BurgerBarStatus extends PropertyChangeSubject {
     void setBurgerBarStatus(String status);

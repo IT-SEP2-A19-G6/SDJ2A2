@@ -1,7 +1,7 @@
 package customer.network;
 
-import Shared.Consumer;
-import Shared.ReplyTo;
+import shared.Consumer;
+import shared.ReplyTo;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;

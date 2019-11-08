@@ -1,6 +1,6 @@
 package manager.model;
 
-import Shared.PropertyChangeSubject;
+import shared.PropertyChangeSubject;
 
 public interface ManagerModel extends PropertyChangeSubject {
 

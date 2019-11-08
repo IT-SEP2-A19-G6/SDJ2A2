@@ -1,8 +1,8 @@
 package chef.network;
 
-import Shared.Burger;
-import Shared.Producer;
-import Shared.ReplyTo;
+import shared.Burger;
+import shared.Producer;
+import shared.ReplyTo;
 import chef.model.ChefModel;
 
 import java.beans.PropertyChangeEvent;
