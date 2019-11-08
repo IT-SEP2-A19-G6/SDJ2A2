@@ -1,39 +1,43 @@
 package server.model.burger;
 
 import client.domain.Burger;
-import client.domain.Recipe;
 import server.persistence.ArrayList;
 
 public class BurgerQueueHandler implements BurgerQueue {
 
-    private ArrayList arrayList;
-    private Burger burger;
+    private ArrayList<Burger> arrayList = new ArrayList<>();
 
     @Override
-    public void addBurger(Burger burger) {
+    public synchronized void addBurger(Burger burger){
 
-        while(!(arrayList.isFull())){
+        while(arrayList.size()>=10){
             try{
+                System.out.println("The queue for burger is full...");
                 wait();
             }catch(InterruptedException e) {
                 e.printStackTrace();
             }
         }
         arrayList.add(burger);
+        System.out.println("Burger has been added to queue...");
         notifyAll();
     }
 
     @Override
-    public void removeBurger() {
-        while(arrayList.size()<=0){
+    public synchronized Burger removeBurger()  {
+        while(arrayList.isEmpty()){
             try {
                 wait();
+                System.out.println("There are no burgers to eat...");
             }
             catch (InterruptedException e){
                 e.printStackTrace();
             }
         }
-        arrayList.remove(burger);
+        System.out.println(arrayList.get(0).toString());
         notifyAll();
+        return arrayList.remove(0);
+
     }
+
 }

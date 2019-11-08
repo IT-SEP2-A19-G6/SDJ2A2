@@ -2,7 +2,6 @@ package client.network;
 
 import Shared.BurgerBar;
 import client.domain.Burger;
-
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -28,7 +27,8 @@ public class ClientRMI {
 
     public void consumeBurgerFromQueue(){
         try {
-            System.out.println("Client has consumed a " + burgerBar.consumeBurger().toString() );
+            burgerBar.consumeBurger();
+            System.out.println("Client has consumed a burger...");
         } catch (RemoteException e) {
             e.printStackTrace();
         }
