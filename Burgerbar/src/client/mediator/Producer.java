@@ -4,6 +4,8 @@ import client.domain.Burger;
 import client.domain.Recipe;
 import client.network.ClientRMI;
 
+import java.util.Random;
+
 public class Producer {
 
     private RecipeProvider recipeProvider;
@@ -18,6 +20,7 @@ public class Producer {
 
     public void produceBurgers() {
         while (true){
+            Random r = new Random();
             int random = (int) Math.floor((Math.random()*3) + 1);
 
             Recipe recipe = null;
@@ -30,7 +33,7 @@ public class Producer {
 
             try {
                 burger = recipe.createBurger();
-                Thread.sleep(1500);
+                Thread.sleep(r.nextInt(1500)+500);
                 System.out.println("Chef has produced a burger");
             } catch (Exception e) {
                 e.printStackTrace();
