@@ -20,7 +20,6 @@ public class ClientRMI {
     public void addBurgerToQueue(Burger burger){
         try {
             burgerBar.produceBurger(burger);
-            System.out.println("The chef has produced a " + burger.toString() );
         } catch (RemoteException e) {
             e.printStackTrace();
         }
