@@ -25,20 +25,20 @@ public class ServerRMI implements Manager, Producer, Consumer {
 
     private void announceStatus(PropertyChangeEvent propertyChangeEvent) {
         if (burgerBarStatus.getBurgerBarStatus()){
-            System.out.println(burgerBarStatus.getBurgerBarStatus());
-//            for (ReplyTo client : clients){ //TODO find bug
+            for (ReplyTo client : clients){
+                System.out.println("BUG: " + burgerBarStatus.getBurgerBarStatus());
 //                try {
-//                    client.burgerBarOpen();
+//                    client.burgerBarOpen(); //TODO find bug
 //                } catch (RemoteException e) {
-//                    e.printStackTrace();
+//                    clients.remove(client);
 //                }
-//            }
+            }
         } else {
             for (ReplyTo client : clients){
                 try {
                     client.burgerBarClosed();
                 } catch (RemoteException e) {
-                    e.printStackTrace();
+                    clients.remove(client);
                 }
             }
         }

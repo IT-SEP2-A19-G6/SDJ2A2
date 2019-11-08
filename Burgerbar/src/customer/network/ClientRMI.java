@@ -24,7 +24,7 @@ public class ClientRMI implements ReplyTo {
         sendSelfToServer();
         burgerBarOpen = consumer.getBurgerBarStatus();
         if (burgerBarOpen){
-            consumeBurgerFromQueue();
+            burgerBarOpen();
         }
     }
 

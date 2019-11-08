@@ -27,7 +27,7 @@ public class ClientRMI implements ReplyTo {
         sendSelfToServer();
         burgerBarOpen = producer.getBurgerBarStatus();
         if (burgerBarOpen){
-            chefModel.produceBurgers();
+            burgerBarOpen();
         }
     }
 
@@ -47,6 +47,7 @@ public class ClientRMI implements ReplyTo {
 
     @Override
     public void burgerBarOpen() {
+        System.out.println("Master chef is cooking");
         chefModel.produceBurgers();
     }
 
