@@ -1,11 +1,11 @@
 package client;
 
-import Shared.BurgerType;
-import client.domain.Burger;
 import client.network.ClientRMI;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+
+
 
 public class RunCustomer {
     public static void main(String[] args) throws RemoteException, NotBoundException {
