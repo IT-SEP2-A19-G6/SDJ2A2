@@ -1,4 +1,4 @@
-package customer.network;
+package client.customer.network;
 
 import shared.Consumer;
 import shared.ReplyTo;
@@ -34,7 +34,7 @@ public class ClientRMI implements ReplyTo {
         while (burgerBarOpened){
             try {
                 consumer.consumeBurger();
-                sout.write(this,"A customer munched a burger");
+                sout.write(this,"A client.customer munched a burger");
                 Thread.sleep(random.nextInt(1000)+500);
             } catch (RemoteException | InterruptedException e) {
                 e.printStackTrace();

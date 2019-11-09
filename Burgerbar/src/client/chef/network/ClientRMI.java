@@ -1,6 +1,6 @@
-package chef.network;
+package client.chef.network;
 
-import chef.model.ChefModel;
+import client.chef.model.ChefModel;
 import shared.Burger;
 import shared.Producer;
 import shared.ReplyTo;

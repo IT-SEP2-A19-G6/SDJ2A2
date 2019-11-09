@@ -1,4 +1,4 @@
-package manager;
+package client.manager;
 
 import javafx.application.Application;
 

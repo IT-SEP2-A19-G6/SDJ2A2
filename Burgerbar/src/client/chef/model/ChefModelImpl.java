@@ -1,8 +1,8 @@
-package chef.model;
+package client.chef.model;
 
-import chef.mediator.Recipe;
-import chef.mediator.RecipeProvider;
-import chef.mediator.RecipeProxy;
+import client.chef.mediator.Recipe;
+import client.chef.mediator.RecipeProvider;
+import client.chef.mediator.RecipeProxy;
 import shared.Burger;
 import shared.sout;
 

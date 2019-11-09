@@ -1,4 +1,4 @@
-package manager.model;
+package client.manager.model;
 
 import shared.PropertyChangeSubject;
 

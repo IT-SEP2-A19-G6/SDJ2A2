@@ -1,6 +1,6 @@
-package manager.network;
+package client.manager.network;
 
-import manager.model.ManagerModel;
+import client.manager.model.ManagerModel;
 import shared.Manager;
 import shared.sout;
 

@@ -1,10 +1,10 @@
-package manager;
+package client.manager;
 
-import manager.model.ManagerModel;
-import manager.model.ManagerModelImpl;
-import manager.network.ClientRMI;
-import manager.view.ManagerController;
-import manager.viewmodel.ManagerViewModel;
+import client.manager.model.ManagerModel;
+import client.manager.model.ManagerModelImpl;
+import client.manager.network.ClientRMI;
+import client.manager.view.ManagerController;
+import client.manager.viewmodel.ManagerViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import shared.sout;
 
 import java.io.IOException;
 import java.rmi.NotBoundException;

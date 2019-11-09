@@ -1,4 +1,4 @@
-package chef.mediator;
+package client.chef.mediator;
 
 public class RecipeProxy implements RecipeProvider {
 

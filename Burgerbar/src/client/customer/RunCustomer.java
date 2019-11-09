@@ -1,6 +1,6 @@
-package customer;
+package client.customer;
 
-import customer.network.ClientRMI;
+import client.customer.network.ClientRMI;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 

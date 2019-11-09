@@ -1,4 +1,4 @@
-package manager.view;
+package client.manager.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import manager.viewmodel.ManagerViewModel;
+import client.manager.viewmodel.ManagerViewModel;
 import shared.sout;
 
 import java.io.File;
@@ -51,8 +51,8 @@ public class ManagerController {
         statusLabel.textProperty().addListener((ov, oldVal, newVal) -> {
             try {
 
-                URL closedPath = ClassLoader.getSystemClassLoader().getResource("manager/view/img/status_closed.png");
-                URL openPath = ClassLoader.getSystemClassLoader().getResource("manager/view/img/status_closed.png");
+                URL closedPath = ClassLoader.getSystemClassLoader().getResource("client/manager/view/img/status_closed.png");
+                URL openPath = ClassLoader.getSystemClassLoader().getResource("client/manager/view/img/status_closed.png");
 
                 if (newVal.equals("Open")) {
                     statusLabel.setStyle("-fx-text-fill: Green");
@@ -112,7 +112,7 @@ public class ManagerController {
 
     }
 
-    public void onRestaurantButtonClick(ActionEvent evt) {
+    public void onRestaurantButtonClick() {
         vm.changeStatus();
     }
 }

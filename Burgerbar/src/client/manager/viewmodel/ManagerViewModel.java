@@ -1,6 +1,6 @@
-package manager.viewmodel;
+package client.manager.viewmodel;
 
-import manager.model.ManagerModel;
+import client.manager.model.ManagerModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.sout;

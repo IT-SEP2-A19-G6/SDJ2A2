@@ -1,4 +1,4 @@
-package manager.model;
+package client.manager.model;
 
 import shared.sout;
 
@@ -17,10 +17,10 @@ public class ManagerModelImpl implements ManagerModel {
     public void changeStatusTo(String status) {
 
         if (status.equals("Close")) {
-            sout.write(this, "The manager opens the restaurant");
+            sout.write(this, "The client.manager opens the restaurant");
             support.firePropertyChange("ClientChangedStatus", status, "Open");
         } else {
-            sout.write(this, "The manager closes the restaurant");
+            sout.write(this, "The client.manager closes the restaurant");
             support.firePropertyChange("ClientChangedStatus", status, "Close");
         }
     }

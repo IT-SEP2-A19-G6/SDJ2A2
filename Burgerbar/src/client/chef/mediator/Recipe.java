@@ -1,4 +1,4 @@
-package chef.mediator;
+package client.chef.mediator;
 
 import shared.Burger;
 

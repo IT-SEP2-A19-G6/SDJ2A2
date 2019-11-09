@@ -1,4 +1,4 @@
-package chef.model;
+package client.chef.model;
 
 import shared.PropertyChangeSubject;
 

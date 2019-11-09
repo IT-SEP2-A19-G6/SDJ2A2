@@ -1,8 +1,8 @@
-package chef;
+package client.chef;
 
-import chef.model.ChefModel;
-import chef.model.ChefModelImpl;
-import chef.network.ClientRMI;
+import client.chef.model.ChefModel;
+import client.chef.model.ChefModelImpl;
+import client.chef.network.ClientRMI;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
