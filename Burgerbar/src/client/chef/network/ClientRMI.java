@@ -15,7 +15,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ClientRMI implements ReplyTo {
     private Producer producer;
-    private boolean burgerBarOpen;
     private ChefModel chefModel;
 
     public ClientRMI(ChefModel chef) throws RemoteException, NotBoundException {
@@ -26,7 +25,7 @@ public class ClientRMI implements ReplyTo {
         chefModel.addPropertyListener("addBurger", this::addBurgerToQueue);
         sout.write(this,"Client is connected");
         sendSelfToServer();
-        burgerBarOpen = producer.getBurgerBarStatus();
+        boolean burgerBarOpen = producer.getBurgerBarStatus();
         if (burgerBarOpen){
             burgerBarOpen();
         }

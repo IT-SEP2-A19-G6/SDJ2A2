@@ -8,6 +8,7 @@ import shared.sout;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Objects;
 import java.util.Random;
 
 public class ChefModelImpl implements ChefModel {
@@ -39,7 +40,7 @@ public class ChefModelImpl implements ChefModel {
             }
 
             try {
-                burger = recipe.createBurger();
+                burger = Objects.requireNonNull(recipe).createBurger();
                 Thread.sleep(r.nextInt(1500)+500);
                 sout.write(this,"Chef has produced a burger");
             } catch (Exception e) {

@@ -1,6 +1,6 @@
 package client.manager.view;
 
-import javafx.event.ActionEvent;
+import client.manager.viewmodel.ManagerViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -9,12 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import client.manager.viewmodel.ManagerViewModel;
 import shared.sout;
 
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 
 public class ManagerController {
 
@@ -57,13 +57,13 @@ public class ManagerController {
                 if (newVal.equals("Open")) {
                     statusLabel.setStyle("-fx-text-fill: Green");
 
-                    Image img = new Image(new File(closedPath.toURI()).toURI().toString());
+                    Image img = new Image(new File(Objects.requireNonNull(openPath).toURI()).toURI().toString());
                     statusImage.setImage(img);
                     burgerImage.setVisible(true);
 
                 } else {
                     statusLabel.setStyle("-fx-text-fill: Red");
-                    Image img = new Image(new File(openPath.toURI()).toURI().toString());
+                    Image img = new Image(new File(Objects.requireNonNull(openPath).toURI()).toURI().toString());
                     statusImage.setImage(img);
                     burgerImage.setVisible(false);
                 }
@@ -106,7 +106,7 @@ public class ManagerController {
     }
 
 
-    public void onCloseButtonAction(ActionEvent evt) {
+    public void onCloseButtonAction() {
         sout.write(this,"Closing the gui application.");
         System.exit(0);
 

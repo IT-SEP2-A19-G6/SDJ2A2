@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Burger implements Serializable
 {
    private static final long serialVersionUID = 1L;
-   private String name;
+   private final String name;
 
    /**
     * A constructor

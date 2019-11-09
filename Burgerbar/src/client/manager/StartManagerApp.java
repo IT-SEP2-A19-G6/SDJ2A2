@@ -30,7 +30,7 @@ public class StartManagerApp extends Application {
         ManagerModel m = new ManagerModelImpl();
         ManagerViewModel mvm = new ManagerViewModel(m);
         controller.init(mvm);
-        ClientRMI clientRMI = new ClientRMI(m);
+        new ClientRMI(m);
 
 
         Scene scene = new Scene(root);
