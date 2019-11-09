@@ -58,10 +58,6 @@ public class ServerRMI implements Manager, Producer, Consumer {
         clients.add(consumer);
     }
     @Override
-    public void regManager(ReplyTo manager) throws RemoteException {
-        clients.add(manager);
-    }
-    @Override
     public void produceBurger(Burger burger) throws RemoteException {
         burgerQueue.addBurger(burger);
     }
@@ -71,8 +67,8 @@ public class ServerRMI implements Manager, Producer, Consumer {
     }
 
     @Override
-    public Burger consumeBurger() throws RemoteException {
-        return burgerQueue.removeBurger();
+    public void consumeBurger() throws RemoteException {
+        burgerQueue.removeBurger();
     }
 
     @Override

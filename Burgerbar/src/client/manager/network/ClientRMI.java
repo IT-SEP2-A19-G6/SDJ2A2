@@ -22,7 +22,7 @@ public class ClientRMI {
         m.addPropertyListener("ClientChangedStatus", this::changeBurgerBarStatus);
     }
 
-    public void changeBurgerBarStatus(PropertyChangeEvent propertyChangeEvent){
+    private void changeBurgerBarStatus(PropertyChangeEvent propertyChangeEvent){
         sout.write(this, "Status of the bar changed");
             try {
 
