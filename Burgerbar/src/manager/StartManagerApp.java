@@ -1,7 +1,7 @@
 package manager;
 
 import manager.model.ManagerModel;
-import manager.model.ManagerModelIml;
+import manager.model.ManagerModelImpl;
 import manager.network.ClientRMI;
 import manager.view.ManagerController;
 import manager.viewmodel.ManagerViewModel;
@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import shared.sout;
 
 import java.io.IOException;
 import java.rmi.NotBoundException;
@@ -27,7 +28,7 @@ public class StartManagerApp extends Application {
 
 
         ManagerController controller = loader.getController();
-        ManagerModel m = new ManagerModelIml();
+        ManagerModel m = new ManagerModelImpl();
         ManagerViewModel mvm = new ManagerViewModel(m);
         controller.init(mvm);
         ClientRMI clientRMI = new ClientRMI(m);
@@ -38,6 +39,7 @@ public class StartManagerApp extends Application {
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
+
 
     }
 

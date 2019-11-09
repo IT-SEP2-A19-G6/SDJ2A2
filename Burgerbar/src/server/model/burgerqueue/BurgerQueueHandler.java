@@ -1,8 +1,9 @@
 package server.model.burgerqueue;
 
-import shared.Burger;
 import server.persistence.ArrayList;
 import server.persistence.ListADT;
+import shared.Burger;
+import shared.sout;
 
 public class BurgerQueueHandler implements BurgerQueue {
 
@@ -13,14 +14,14 @@ public class BurgerQueueHandler implements BurgerQueue {
 
         while(arrayList.size()>=10){
             try{
-                System.out.println("The queue for burger is full...");
+                sout.write(this,"The queue for burger is full...");
                 wait();
             }catch(InterruptedException e) {
                 e.printStackTrace();
             }
         }
         arrayList.add(burger);
-        System.out.println("Burger has been added to queue...");
+        sout.write(this,"Burger has been added to queue...");
         notifyAll();
     }
 
@@ -29,13 +30,14 @@ public class BurgerQueueHandler implements BurgerQueue {
         while(arrayList.isEmpty()){
             try {
                 wait();
-                System.out.println("There are no burgers to eat...");
+                sout.write(this,"There are no burgers to eat...");
             }
             catch (InterruptedException e){
                 e.printStackTrace();
             }
         }
-        System.out.println("Customer eats a " + arrayList.get(0).getName());
+
+        sout.write(this,"Customer eats a " + arrayList.get(0).getName());
         notifyAll();
         return arrayList.remove(0);
 

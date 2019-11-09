@@ -1,9 +1,10 @@
 package chef.network;
 
+import chef.model.ChefModel;
 import shared.Burger;
 import shared.Producer;
 import shared.ReplyTo;
-import chef.model.ChefModel;
+import shared.sout;
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.NotBoundException;
@@ -23,7 +24,7 @@ public class ClientRMI implements ReplyTo {
         producer = (Producer) registry.lookup("burgerServer");
         this.chefModel = chef;
         chefModel.addPropertyListener("addBurger", this::addBurgerToQueue);
-        System.out.println("Client is connected");
+        sout.write(this,"Client is connected");
         sendSelfToServer();
         burgerBarOpen = producer.getBurgerBarStatus();
         if (burgerBarOpen){
@@ -47,12 +48,18 @@ public class ClientRMI implements ReplyTo {
 
     @Override
     public void burgerBarOpen() {
-        System.out.println("Master chef is cooking");
+
+        sout.write(this, "Bar has been announced opened. Chefs going to start working...");
         chefModel.produceBurgers();
+
+
     }
 
     @Override
     public void burgerBarClosed() {
+        sout.write(this, "Bar has been announced closed. Chefs going home...");
         chefModel.goHome();
+
+
     }
 }

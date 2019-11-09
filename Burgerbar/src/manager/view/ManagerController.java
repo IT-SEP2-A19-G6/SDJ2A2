@@ -1,6 +1,5 @@
 package manager.view;
 
-import manager.viewmodel.ManagerViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import manager.viewmodel.ManagerViewModel;
+import shared.sout;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -73,7 +74,7 @@ public class ManagerController {
                 statusButton.setText(oldVal + (oldVal.equals("Close") ? " down" : " up") + " burger bar");
 
             } catch (URISyntaxException e) {
-                System.out.println("there was an error loading gui images.");
+                sout.write(this,"there was an error loading gui images.");
                 e.printStackTrace();
             }
         });
@@ -106,7 +107,7 @@ public class ManagerController {
 
 
     public void onCloseButtonAction(ActionEvent evt) {
-        System.out.println("Closing the gui application.");
+        sout.write(this,"Closing the gui application.");
         System.exit(0);
 
     }

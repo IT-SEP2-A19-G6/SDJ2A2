@@ -1,9 +1,8 @@
 package server.network;
 
-import shared.*;
 import server.model.burgerbar.BurgerBarStatus;
 import server.model.burgerqueue.BurgerQueue;
-
+import shared.*;
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
@@ -24,41 +23,48 @@ public class ServerRMI implements Manager, Producer, Consumer {
     }
 
     private void announceStatus(PropertyChangeEvent propertyChangeEvent) {
-        if (burgerBarStatus.getBurgerBarStatus()){
-            for (ReplyTo client : clients){
-                System.out.println("BUG: " + burgerBarStatus.getBurgerBarStatus());
-//                try {
-//                    client.burgerBarOpen(); //TODO find bug
-//                } catch (RemoteException e) {
-//                    clients.remove(client);
-//                }
-            }
-        } else {
-            for (ReplyTo client : clients){
-                try {
-                    client.burgerBarClosed();
-                } catch (RemoteException e) {
-                    clients.remove(client);
+
+            sout.write(this, "Announcing to clients that the bar is " + burgerBarStatus.getBurgerBarStatus());
+            if (burgerBarStatus.getBurgerBarStatus()){
+
+                for (ReplyTo client : clients){
+                        new Thread(()-> {
+                            // needs to run in a thread, or clients will be locked
+                            // while doing operations (while)
+                            try {
+                                client.burgerBarOpen();
+                            } catch (RemoteException e) {
+                                clients.remove(client);
+                            }
+                        }).start();
+                }
+            } else {
+                for (ReplyTo client : clients){
+                    try {
+                        client.burgerBarClosed();
+                    } catch (RemoteException e) {
+                        clients.remove(client);
+                    }
                 }
             }
-        }
     }
 
     @Override
     public void regProducer(ReplyTo producer) throws RemoteException {
         clients.add(producer);
     }
-
-    @Override
-    public void produceBurger(Burger burger) throws RemoteException {
-        burgerQueue.addBurger(burger);
-    }
-
     @Override
     public void regConsumer(ReplyTo consumer) throws RemoteException {
         clients.add(consumer);
     }
-
+    @Override
+    public void regManager(ReplyTo manager) throws RemoteException {
+        clients.add(manager);
+    }
+    @Override
+    public void produceBurger(Burger burger) throws RemoteException {
+        burgerQueue.addBurger(burger);
+    }
     @Override
     public boolean getBurgerBarStatus() {
         return burgerBarStatus.getBurgerBarStatus();
@@ -73,4 +79,6 @@ public class ServerRMI implements Manager, Producer, Consumer {
     public void burgerBarStatus(String status) throws RemoteException {
         burgerBarStatus.setBurgerBarStatus(status);
     }
+
+
 }

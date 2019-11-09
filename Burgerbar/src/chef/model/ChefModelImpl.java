@@ -1,15 +1,16 @@
 package chef.model;
 
-import shared.Burger;
 import chef.mediator.Recipe;
 import chef.mediator.RecipeProvider;
 import chef.mediator.RecipeProxy;
+import shared.Burger;
+import shared.sout;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Random;
 
-public class ChefModelIml implements ChefModel {
+public class ChefModelImpl implements ChefModel {
 
     private RecipeProvider recipeProvider;
     private Burger burger;
@@ -17,7 +18,7 @@ public class ChefModelIml implements ChefModel {
     private boolean open;
 
 
-    public ChefModelIml(String recipeFileName) {
+    public ChefModelImpl(String recipeFileName) {
         recipeProvider = new RecipeProxy(recipeFileName);
         support = new PropertyChangeSupport(this);
     }
@@ -40,14 +41,14 @@ public class ChefModelIml implements ChefModel {
             try {
                 burger = recipe.createBurger();
                 Thread.sleep(r.nextInt(1500)+500);
-                System.out.println("Chef has produced a burger");
+                sout.write(this,"Chef has produced a burger");
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
             support.firePropertyChange("addBurger", null, burger);
         }
-        System.out.println("Chef is leaving");
+        sout.write(this,"Chef is leaving");
     }
 
     @Override

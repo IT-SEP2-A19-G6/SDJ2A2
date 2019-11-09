@@ -3,6 +3,7 @@ package manager.viewmodel;
 import manager.model.ManagerModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.sout;
 
 import java.beans.PropertyChangeEvent;
 
@@ -21,14 +22,14 @@ public class ManagerViewModel {
     }
 
     private void setupListeners() {
-        model.addPropertyListener("ChangedStatus", this::changeStatusTo);
+        model.addPropertyListener("ClientChangedStatus", this::changeStatusTo);
     }
 
     private void changeStatusTo(PropertyChangeEvent evt) {
 
-            System.out.println("Got from event: " + evt.getNewValue());
-            String stat =  (String) evt.getNewValue();
-            status.setValue(stat);
+        sout.write(this, "Got from event: " + evt.getNewValue());
+        String stat = (String) evt.getNewValue();
+        status.setValue(stat);
 
 
     }

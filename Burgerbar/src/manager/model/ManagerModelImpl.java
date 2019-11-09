@@ -1,30 +1,34 @@
 package manager.model;
 
+import shared.sout;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class ManagerModelIml implements ManagerModel {
+public class ManagerModelImpl implements ManagerModel {
 
     private PropertyChangeSupport support;
 
-    public ManagerModelIml() {
+    public ManagerModelImpl() {
         support = new PropertyChangeSupport(this);
     }
 
     @Override
     public void changeStatusTo(String status) {
+
         if (status.equals("Close")) {
-            System.out.println("The manager opens the restaurant");
-            support.firePropertyChange("ChangedStatus", status, "Open");
+            sout.write(this, "The manager opens the restaurant");
+            support.firePropertyChange("ClientChangedStatus", status, "Open");
         } else {
-            System.out.println("The manager closes the restaurant");
-            support.firePropertyChange("ChangedStatus", status, "Close");
+            sout.write(this, "The manager closes the restaurant");
+            support.firePropertyChange("ClientChangedStatus", status, "Close");
         }
     }
 
+
     @Override
     public void addPropertyListener(String name, PropertyChangeListener listener) {
-        System.out.println("added listener with name: " + name);
+        sout.write(this, "added listener with name: " + name);
         support.addPropertyChangeListener(name, listener);
     }
 }

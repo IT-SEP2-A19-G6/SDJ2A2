@@ -1,26 +1,28 @@
 package server.model.burgerbar;
 
+import shared.sout;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class BurgerBarStatusIml implements BurgerBarStatus {
+public class BurgerBarStatusImpl implements BurgerBarStatus {
     private PropertyChangeSupport support;
     private boolean barOpen;
 
-    public BurgerBarStatusIml() {
+    public BurgerBarStatusImpl() {
         support = new PropertyChangeSupport(this);
-        barOpen = true;
+        barOpen = false;
     }
 
     @Override
     public void setBurgerBarStatus(String status) {
+        sout.write(this, "Burger bar new status: " + status);
+
         if (status.equals("Open")){
             barOpen = true;
-            System.out.println("The burger bar is open");
             support.firePropertyChange("ChangedStatus", "Close", status);
         } else if (status.equals("Close")){
             barOpen = false;
-            System.out.println("The burger bar is closed");
             support.firePropertyChange("ChangedStatus", "Open", status);
         }
 

@@ -2,6 +2,7 @@ package customer.network;
 
 import shared.Consumer;
 import shared.ReplyTo;
+import shared.sout;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -12,7 +13,7 @@ import java.util.Random;
 
 public class ClientRMI implements ReplyTo {
     private Consumer consumer;
-    private boolean burgerBarOpen;
+    private boolean burgerBarOpened;
     private Random random = new Random();
 
 
@@ -20,26 +21,26 @@ public class ClientRMI implements ReplyTo {
         UnicastRemoteObject.exportObject(this, 0);
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         consumer = (Consumer) registry.lookup("burgerServer");
-        System.out.println("Client is connected");
+        sout.write(this,"Client is connected");
         sendSelfToServer();
-        burgerBarOpen = consumer.getBurgerBarStatus();
-        if (burgerBarOpen){
+        burgerBarOpened = consumer.getBurgerBarStatus();
+        if (burgerBarOpened){
             burgerBarOpen();
         }
     }
 
     private void consumeBurgerFromQueue(){
-        burgerBarOpen = true;
-        while (burgerBarOpen){
+        burgerBarOpened = true;
+        while (burgerBarOpened){
             try {
                 consumer.consumeBurger();
-                System.out.println("A customer munched a burger");
+                sout.write(this,"A customer munched a burger");
                 Thread.sleep(random.nextInt(1000)+500);
             } catch (RemoteException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("Customer is leaving");
+        sout.write(this,"Customer is leaving");
     }
 
 
@@ -50,13 +51,13 @@ public class ClientRMI implements ReplyTo {
 
     @Override
     public void burgerBarOpen() {
-        System.out.println("Customer orders some meat");
+        sout.write(this,"Customer orders some meat");
         consumeBurgerFromQueue();
     }
 
     @Override
     public void burgerBarClosed() {
-        burgerBarOpen = false;
+        burgerBarOpened = false;
     }
 
 }
