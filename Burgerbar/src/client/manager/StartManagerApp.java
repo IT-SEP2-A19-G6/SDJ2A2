@@ -2,7 +2,7 @@ package client.manager;
 
 import client.manager.model.ManagerModel;
 import client.manager.model.ManagerModelImpl;
-import client.manager.network.ClientRMI;
+import client.manager.network.ManagerClientRMI;
 import client.manager.view.ManagerController;
 import client.manager.viewmodel.ManagerViewModel;
 import javafx.application.Application;
@@ -30,7 +30,7 @@ public class StartManagerApp extends Application {
         ManagerModel m = new ManagerModelImpl();
         ManagerViewModel mvm = new ManagerViewModel(m);
         controller.init(mvm);
-        new ClientRMI(m);
+        new ManagerClientRMI(m);
 
 
         Scene scene = new Scene(root);

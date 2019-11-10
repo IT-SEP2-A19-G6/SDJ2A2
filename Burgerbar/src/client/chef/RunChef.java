@@ -2,7 +2,7 @@ package client.chef;
 
 import client.chef.model.ChefModel;
 import client.chef.model.ChefModelImpl;
-import client.chef.network.ClientRMI;
+import client.chef.network.ChefClientRMI;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
@@ -15,7 +15,7 @@ public class RunChef {
         String filePath = pathToClass.replaceAll(className, "").replaceAll("%20", " ").substring(6) + fileName;
 
         ChefModel chef = new ChefModelImpl(filePath);
-        new ClientRMI(chef);
+        new ChefClientRMI(chef);
     }
 
 }

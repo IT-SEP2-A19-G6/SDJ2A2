@@ -7,7 +7,7 @@ import shared.sout;
 
 import java.beans.PropertyChangeEvent;
 
-public class ManagerViewModel {
+public class    ManagerViewModel {
 
 
     private StringProperty status;

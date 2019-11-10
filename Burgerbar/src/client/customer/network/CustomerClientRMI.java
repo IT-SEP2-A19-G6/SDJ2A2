@@ -11,13 +11,13 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Random;
 
-public class ClientRMI implements ReplyTo {
+public class CustomerClientRMI implements ReplyTo {
     private Consumer consumer;
     private boolean burgerBarOpened;
     private Random random = new Random();
 
 
-    public ClientRMI() throws RemoteException, NotBoundException {
+    public CustomerClientRMI() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this, 0);
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         consumer = (Consumer) registry.lookup("burgerServer");

@@ -13,11 +13,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class ClientRMI implements ReplyTo {
+public class ChefClientRMI implements ReplyTo {
     private Producer producer;
     private ChefModel chefModel;
 
-    public ClientRMI(ChefModel chef) throws RemoteException, NotBoundException {
+    public ChefClientRMI(ChefModel chef) throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this, 0);
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         producer = (Producer) registry.lookup("burgerServer");
